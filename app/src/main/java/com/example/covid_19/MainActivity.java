@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonCall, buttonSms, buttonTest;
+    Button buttonCall, buttonSms;
+    ImageButton buttonTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonCall = findViewById(R.id.callBtn);
         buttonSms = findViewById(R.id.smsBtn);
-//        buttonTest = findViewById(R.id.testBtn);
+        buttonTest = findViewById(R.id.testBtn);
 
         buttonCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        buttonTest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String url = "https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html";
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse(url));
-//                startActivity(intent);
-//            }
-//        });
+        buttonTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
 }
