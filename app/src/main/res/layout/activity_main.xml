@@ -233,14 +233,14 @@
             app:srcCompat="@drawable/ic_testbanner" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/stat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/send_sms_button"
+            android:background="@drawable/statistic_button"
             android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
             android:fontFamily="@font/graphiksemibold"
             android:paddingLeft="16dp"
@@ -252,8 +252,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/testBtn"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
