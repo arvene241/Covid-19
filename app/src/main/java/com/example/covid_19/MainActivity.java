@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonCall, buttonSms;
     ImageButton buttonTest;
+    Button stat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCall = findViewById(R.id.callBtn);
         buttonSms = findViewById(R.id.smsBtn);
         buttonTest = findViewById(R.id.testBtn);
+        stat = findViewById(R.id.stat);
 
         buttonCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
+            }
+        });
+        stat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this, Statistics.class);
+                startActivity(i);
             }
         });
     }
