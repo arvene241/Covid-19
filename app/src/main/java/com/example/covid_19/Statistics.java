@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.hbb20.CountryCodePicker;
@@ -21,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Statistics extends AppCompatActivity {
+public class Statistics extends AppCompatActivity  {
 
     CountryCodePicker countryCodePicker;
     TextView totalActive, totalCases, totalDeaths, todayActive, todayDeaths, totalRecovered, todayRecovered, todayCases, critical, todayCritical;
@@ -29,7 +26,7 @@ public class Statistics extends AppCompatActivity {
     private List<ModelClass> modelClassList;
     //    private List<ModelClass> modelClassList2;
     String country;
-    Spinner spinner;
+//    Spinner spinner;
 //    private RecyclerView recyclerView;
 
     ImageView back;
@@ -52,7 +49,7 @@ public class Statistics extends AppCompatActivity {
             }
         });
 
-        countryCodePicker = findViewById(R.id.country);
+        countryCodePicker = findViewById(R.id.countrtyFlag);
         todayActive = findViewById(R.id.active);
         totalActive = findViewById(R.id.active);
         totalCases = findViewById(R.id.cases);
@@ -68,18 +65,17 @@ public class Statistics extends AppCompatActivity {
         buttonTotal = findViewById(R.id.total);
         buttonToday = findViewById(R.id.today);
 
-        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this); // spinner selected country
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(arrayAdapter);
+//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);
+//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(arrayAdapter);
 
         countryCodePicker.setAutoDetectedCountry(true);
         country = countryCodePicker.getSelectedCountryName(); // get the selected country
         countryCodePicker.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
             public void onCountrySelected() {
-                country = countryCodePicker.getDefaultCountryName();
+                country = countryCodePicker.getSelectedCountryName();
                 fetchdataTotal();
             }
         });
