@@ -22,12 +22,8 @@ public class Statistics extends AppCompatActivity  {
 
     CountryCodePicker countryCodePicker;
     TextView totalActive, totalCases, totalDeaths, todayActive, todayDeaths, totalRecovered, todayRecovered, todayCases, critical, todayCritical;
-    //    String[] types = {"cases", "deaths", "recovered", "active", "critical"};
     private List<ModelClass> modelClassList;
-    //    private List<ModelClass> modelClassList2;
     String country;
-//    Spinner spinner;
-//    private RecyclerView recyclerView;
 
     ImageView back;
     Button buttonTotal, buttonToday;
@@ -61,14 +57,8 @@ public class Statistics extends AppCompatActivity  {
         critical = findViewById(R.id.critical);
         todayCritical = findViewById(R.id.critical);
         modelClassList = new ArrayList<>();
-//        modelClassList2 = new ArrayList<>();
         buttonTotal = findViewById(R.id.total);
         buttonToday = findViewById(R.id.today);
-
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);
-//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        spinner.setAdapter(arrayAdapter);
 
         countryCodePicker.setAutoDetectedCountry(true);
         country = countryCodePicker.getSelectedCountryName(); // get the selected country
@@ -89,7 +79,7 @@ public class Statistics extends AppCompatActivity  {
             }
         });
 
-        buttonTotal.setOnClickListener(new View.OnClickListener() {
+        buttonToday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fetchdataToday();
