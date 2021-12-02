@@ -2,9 +2,9 @@ package com.example.covid_19;
 
 public class ModelClass {
 
-    String cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active, todayActive, country, critical, todayCritical;
+    String cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active, country, critical;
 
-    public ModelClass(String cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String todayActive, String country, String critical, String todayCritical) {
+    public ModelClass(String cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String country, String critical) {
         this.cases = cases;
         this.todayCases = todayCases;
         this.deaths = deaths;
@@ -12,10 +12,8 @@ public class ModelClass {
         this.recovered = recovered;
         this.todayRecovered = todayRecovered;
         this.active = active;
-        this.todayActive = todayActive;
         this.country = country;
         this.critical = critical;
-        this.todayCritical = todayCritical;
     }
 
     public String getCases() {
@@ -74,14 +72,6 @@ public class ModelClass {
         this.active = active;
     }
 
-    public String getTodayActive() {
-        return todayActive;
-    }
-
-    public void setTodayActive(String todayActive) {
-        this.todayActive = todayActive;
-    }
-
     public String getCountry() {
         return country;
     }
@@ -96,13 +86,5 @@ public class ModelClass {
 
     public void setCritical(String critical) {
         this.critical = critical;
-    }
-
-    public String getTodayCritical() {
-        return todayCritical;
-    }
-
-    public void setTodayCritical(String todayCases) {
-        this.todayCritical = todayCritical;
     }
 }

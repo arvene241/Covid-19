@@ -21,7 +21,7 @@ import retrofit2.Response;
 public class Statistics extends AppCompatActivity  {
 
     CountryCodePicker countryCodePicker;
-    TextView totalActive, totalCases, totalDeaths, todayActive, todayDeaths, totalRecovered, todayRecovered, todayCases, critical, todayCritical;
+    TextView totalCases, totalDeaths, active, todayDeaths, totalRecovered, todayRecovered, todayCases, critical;
     private List<ModelClass> modelClassList;
     String country;
 
@@ -46,19 +46,15 @@ public class Statistics extends AppCompatActivity  {
         });
 
         countryCodePicker = findViewById(R.id.countrtyFlag);
-        todayActive = findViewById(R.id.active);
-        totalActive = findViewById(R.id.active);
+        active = findViewById(R.id.active);
         totalCases = findViewById(R.id.cases);
-        todayCases = findViewById(R.id.cases);
-        todayDeaths = findViewById(R.id.deaths);
+        todayCases = findViewById(R.id.todayCases);
+        todayDeaths = findViewById(R.id.todayDeaths);
         totalDeaths = findViewById(R.id.deaths);
-        todayRecovered = findViewById(R.id.recovered);
+        todayRecovered = findViewById(R.id.todayRecovered);
         totalRecovered = findViewById(R.id.recovered);
         critical = findViewById(R.id.critical);
-        todayCritical = findViewById(R.id.critical);
         modelClassList = new ArrayList<>();
-        buttonTotal = findViewById(R.id.total);
-        buttonToday = findViewById(R.id.today);
 
         countryCodePicker.setAutoDetectedCountry(true);
         country = countryCodePicker.getSelectedCountryName(); // get the selected country
@@ -66,30 +62,16 @@ public class Statistics extends AppCompatActivity  {
             @Override
             public void onCountrySelected() {
                 country = countryCodePicker.getSelectedCountryName();
-                fetchdataTotal();
+                fetchdataData();
             }
         });
 
-        fetchdataTotal();
-
-        buttonTotal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fetchdataTotal();
-            }
-        });
-
-        buttonToday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fetchdataToday();
-            }
-        });
+        fetchdataData();
 
         }
 
 
-    private void fetchdataTotal() {
+    private void fetchdataData() {
 
         ApiUtilities.getAPIInterface().getcountryData().enqueue(new Callback<List<ModelClass>>() {
             @Override
@@ -99,37 +81,14 @@ public class Statistics extends AppCompatActivity  {
                 for (int i = 0; i < modelClassList.size(); i++) {
                     if (modelClassList.get(i).getCountry().equals(country)) {
 
-                        totalActive.setText((modelClassList.get(i).getActive()));
+                        active.setText((modelClassList.get(i).getActive()));
                         totalCases.setText((modelClassList.get(i).getCases()));
                         totalDeaths.setText((modelClassList.get(i).getDeaths()));
                         totalRecovered.setText((modelClassList.get(i).getRecovered()));
                         critical.setText((modelClassList.get(i).getCritical()));
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<ModelClass>> call, Throwable t) {
-
-            }
-        });
-    }
-
-    private void fetchdataToday() {
-
-        ApiUtilities.getAPIInterface().getcountryData().enqueue(new Callback<List<ModelClass>>() {
-            @Override
-            public void onResponse(Call<List<ModelClass>> call, Response<List<ModelClass>> response) {
-                modelClassList.addAll(response.body());
-
-                for (int i = 0; i < modelClassList.size(); i++) {
-                    if (modelClassList.get(i).getCountry().equals(country)) {
-
-                        todayActive.setText((modelClassList.get(i).getTodayActive()));
                         todayCases.setText((modelClassList.get(i).getTodayCases()));
                         todayDeaths.setText((modelClassList.get(i).getTodayDeaths()));
                         todayRecovered.setText((modelClassList.get(i).getTodayRecovered()));
-                        todayCritical.setText((modelClassList.get(i).getTodayCritical()));
                     }
                 }
             }
