@@ -15,7 +15,7 @@
 
 ## Contact
 
-* Mike Arvene Lantin mikearvene.lantin@g.batstate-u.edu.ph
+* Mike Arvene Lantin - mikearvene.lantin@g.batstate-u.edu.ph
 * Shainne Amurao - shainne.amurao@g.batstate-u.edu.ph
 * Frances Marielle Lumanglas - francesmarielle.lumanglas@g.batstate-u.edu.ph
 
