@@ -1,6 +1,13 @@
-<h1 align="center">Covid-19</h1>
-
-<p align="center">Covid 19 is built by android studio and java</p>
+<div align="center"> 
+  <a href="https://github.com/arvene241/Covid-19">
+    <img src="app/src/main/ic_launcher-playstore.png" alt="Logo" width="200" height="200">
+  </a>
+  
+  <h1 align="center">Covid-19</h1>
+  
+  <p align="center">Covid 19 is built by android studio and java</p>
+  
+</div>
 
 ## DEMO
 
